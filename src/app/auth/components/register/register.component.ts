@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core'
-import { RouterModule, Routes } from '@angular/router'
+import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 
 @Component({
   selector: 'app-register',
@@ -7,7 +7,23 @@ import { RouterModule, Routes } from '@angular/router'
   styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent implements OnInit {
-  constructor() {}
+  form: FormGroup
 
-  ngOnInit(): void {}
+  constructor(private fb: FormBuilder) {}
+
+  ngOnInit(): void {
+    this.initializeForm()
+  }
+
+  onSubmit(): void {
+    console.log('submit', this.form.value)
+  }
+
+  private initializeForm(): void {
+    this.form = this.fb.group({
+      username: ['', Validators.required],
+      email: ['', Validators.required],
+      password: ['', Validators.required],
+    })
+  }
 }

@@ -6,6 +6,11 @@ import {
   registerSuccessAction,
 } from './actions/register.actions'
 import { AuthStateInterface } from '../types/authState.interface'
+import {
+  loginAction,
+  loginFailureAction,
+  loginSuccessAction,
+} from './actions/login.actions'
 
 const initialState: AuthStateInterface = {
   isSubmitting: false,
@@ -28,13 +33,38 @@ const authReducer = createReducer(
     registerSuccessAction,
     (state, action): AuthStateInterface => ({
       ...state,
-      isLoggedIn: true,
       isSubmitting: false,
+      isLoggedIn: true,
       currentUser: action.currentUser,
     })
   ),
   on(
     registerFailureAction,
+    (state, action): AuthStateInterface => ({
+      ...state,
+      isSubmitting: false,
+      validationErrors: action.errors,
+    })
+  ),
+  on(
+    loginAction,
+    (state): AuthStateInterface => ({
+      ...state,
+      isSubmitting: true,
+      validationErrors: null,
+    })
+  ),
+  on(
+    loginSuccessAction,
+    (state, action): AuthStateInterface => ({
+      ...state,
+      isSubmitting: false,
+      isLoggedIn: true,
+      currentUser: action.currentUser,
+    })
+  ),
+  on(
+    loginFailureAction,
     (state, action): AuthStateInterface => ({
       ...state,
       isSubmitting: false,

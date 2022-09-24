@@ -1,1 +1,54 @@
-<p>login works!</p>
+<div class='auth-page'>
+  <div class='container page'>
+    <div class='row'>
+      <div class='col-md-6 offset-md-3 col-xs-12'>
+        <h1 class='text-xs-center'>Login</h1>
+        <p class='text-xs-center'>
+          <a [routerLink]="['/register']">Need an account?</a>
+        </p>
+        <app-backend-error-messages
+          *ngIf='backendErrors$ | async'
+          [backendErrors]='backendErrors$ | async'
+        >
+          <ul class='error-messages'></ul>
+        </app-backend-error-messages>
+
+        <form (ngSubmit)='onSubmit()'
+              [formGroup]='this.form'
+              class='ng-untouched ng-pristine ng-invalid'
+        >
+
+          <fieldset>
+
+            <fieldset class='form-group'>
+              
+              <input class='form-control form-control-lg ng-untouched ng-pristine ng-invalid'
+                     formControlName='email'
+                     placeholder='Email'
+                     required
+                     type='text'
+              >
+            </fieldset>
+
+            <fieldset class='form-group'>
+              <input class='form-control form-control-lg ng-untouched ng-pristine ng-invalid'
+                     formControlName='password'
+                     placeholder='Password'
+                     required
+                     type='password'
+              >
+            </fieldset>
+
+            <button
+              [disabled]='isSubmitting$ | async'
+              class='btn btn-lg btn-primary pull-xs-right'
+              type='submit'
+            >
+              Sign in
+            </button>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

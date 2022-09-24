@@ -6,11 +6,14 @@
         <p class='text-xs-center'>
           <a [routerLink]="['/login']">Have an account?</a>
         </p>
-        <!-- Backend errors here
-        <app-list-errors>
+
+        <app-backend-error-messages
+          *ngIf='backendErrors$ | async'
+          [backendErrors]='backendErrors$ | async'
+        >
           <ul class='error-messages'></ul>
-        </app-list-errors>
-        -->
+        </app-backend-error-messages>
+
         <form (ngSubmit)='onSubmit()'
               [formGroup]='this.form'
               class='ng-untouched ng-pristine ng-invalid'
@@ -46,7 +49,7 @@
             </fieldset>
 
             <button
-              [disabled]='!form.valid'
+              [disabled]='isSubmitting$ | async'
               class='btn btn-lg btn-primary pull-xs-right'
               type='submit'
             >

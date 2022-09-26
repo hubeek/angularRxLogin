@@ -24,7 +24,8 @@ export const isLoggedInSelector = createSelector(
 
 export const isAnonymousInSelector = createSelector(
   authFeatureSelector,
-  (authState: AuthStateInterface) => authState.isLoggedIn === false
+  (authState: AuthStateInterface) =>
+    authState.isLoggedIn === false || authState.isLoggedIn === null
 )
 
 export const currentUserSelector = createSelector(

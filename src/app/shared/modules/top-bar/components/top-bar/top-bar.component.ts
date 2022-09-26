@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core'
-import { Observable } from 'rxjs'
+import { Observable, async } from 'rxjs'
 import { CurrentUserInterface } from '../../../../types/currentUser'
 import { select, Store } from '@ngrx/store'
 import {

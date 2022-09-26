@@ -2,7 +2,11 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.2.  
 Based on a Udemy tutorial: Angular and NgRx - Building Real Project From Scratch by Oleksandr Kocherhin.  
-Example of login/register funcs in angular project with the use of redux, ngrx, and effects.
+Example of login/register funcs in angular project with the use of redux, ngrx, and effects.   
+Backend server used is [productionready](https://conduit.productionready.io/api)   
+This oneis used by [Conduit](https://demo.realworld.io/#/)
+Docker image is added to run local docker instance. Adjust api irl in enviroment props for devlopment and production.  
+
 
 ## Development server
 

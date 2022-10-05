@@ -35,3 +35,49 @@ package that implements end-to-end testing capabilities.
 
 To get more help on the Angular CLI use `ng help` or go check out
 the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## proj structure
+
+/app			
+  /article		is a page  
+  article.module.ts	has all modules  
+
+/app  
+  /article  
+    /components  
+      /article  
+        article.component.html  
+        article.component.sccs  
+        article.component.ts  
+    article.module.ts    
+
+  
+/app  
+  /article  
+    /components  
+      /article  
+      /comments  
+    /services  
+     article.service.ts  
+    /store   			- redux  
+    /types   			- interfaces  
+    article.module.ts    
+
+
+/app
+  /app
+  /auth
+  /shared
+    /modules
+      /feed
+        /components
+	/services
+	 article.service.ts
+	/store
+	/types
+	 article.interface.ts
+	feed.module.ts
+
+
+
+

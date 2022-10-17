@@ -12,6 +12,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { TopBarModule } from './shared/modules/top-bar/top-bar.module';
 import { PersistanceService } from './shared/services/persistance.service';
 import { Authinterceptor } from './shared/services/authinterceptor.service';
+import { InputNameModule } from './hjh/input-name.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,6 +21,7 @@ import { Authinterceptor } from './shared/services/authinterceptor.service';
     HttpClientModule,
     AppRoutingModule,
     AuthModule,
+    InputNameModule,
     StoreModule.forRoot({}, {}),
     StoreDevtoolsModule.instrument({
       maxAge: 25,

@@ -6,6 +6,9 @@
       <li class='nav-item'>
         <a [routerLink]="['/']" class='nav-link'>Home</a>
       </li>
+      <li class='nav-item'>
+        <a [routerLink]="['/hjh']" class='nav-link'>hjh</a>
+      </li>
       <ng-container *ngIf='isLoggedIn$ | async'>
         <li class='nav-item'>
           <a [routerLink]="['/articles/new']" class='nav-link'>
